@@ -3064,6 +3064,13 @@ if CLIENT then
 end
 
 if SERVER then
+	function hg.FindAmmo(ammotype)
+		for i,_ in pairs(hg.ammotypes) do
+			if hg.ammotypes[i].name == game.GetAmmoName(ammotype) then
+				return i
+			end
+		end
+	end
     util.AddNetworkString( "drop_ammo" )
 
     net.Receive( "drop_ammo", function( len, ply )
@@ -3076,7 +3083,8 @@ if SERVER then
 			--if not ammolistent[ammotype] then ply:ChatPrint("Invalid entitytype...") return end
 			--print(game.GetAmmoName(ammotype))
 		
-        local AmmoEnt = ents.Create( "ent_ammo_"..string.lower( string.Replace(game.GetAmmoName(ammotype)," ", "") ) )
+		
+        local AmmoEnt = ents.Create( "ent_ammo_"..hg.FindAmmo(ammotype)," ", "")
 		if not IsValid(AmmoEnt) then
 			ply:ChatPrint("Invalid entitytype...")
 		else
