@@ -175,7 +175,10 @@ function Gib_Input(rag, bone, force)
 			local ent = hg.DropArmorForce(rag, armors["head"])
 			ent:SetPos(phys_obj:GetPos())
 		end
-		
+		if armors["ears"] and !hg.armor["ears"][armors["ears"]].nodrop then
+			local ent = hg.DropArmorForce(rag, armors["ears"])
+			ent:SetPos(phys_obj:GetPos())
+		end
 		if armors["face"] and !hg.armor["face"][armors["face"]].nodrop then
 			local ent = hg.DropArmorForce(rag, armors["face"])
 			ent:SetPos(phys_obj:GetPos())
