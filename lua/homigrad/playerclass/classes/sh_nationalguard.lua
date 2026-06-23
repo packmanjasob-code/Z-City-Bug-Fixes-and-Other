@@ -52,7 +52,7 @@ function CLASS.On(self)
     self:SetNWString("PlayerName", rank .. " " .. Appearance.AName)
     self:SetPlayerColor(clr)
     self:SetModel(models[math.random(#models)])
-    self:SetBodygroup(0,14)
+    self:SetBodygroup(1,14)
     self:SetSubMaterial()
     self.CurAppearance = Appearance
 end
