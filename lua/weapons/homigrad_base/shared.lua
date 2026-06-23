@@ -634,7 +634,7 @@ function SWEP:EmitShoot()
 	local ply = self:GetOwner()
 	ply = IsValid(ply) and ply or self
 
-	local hadEarProtection = IsValid(lply) and lply.armors and lply.armors["ears"] == "headphones1"
+	local hadEarProtection = IsValid(lply) and lply.armors and hg.armor.ears[lply.armors["ears"]]
 
 	if CLIENT then
 		if hadEarProtection then
